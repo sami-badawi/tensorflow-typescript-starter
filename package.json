@@ -1,0 +1,35 @@
+{
+  "name": "tfjs-examples-mnist-node",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/main.js",
+  "license": "Apache-2.0",
+  "private": true,
+  "engines": {
+    "node": ">=8.11.0"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^0.2.3",
+    "@types/argparse": "^1.0.35",
+    "argparse": "^1.0.10",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "clang-format": "~1.2.2",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  },
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "start": "node .",
+    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "testWithCoverage": "nyc -r lcov -e .ts -x \"tests/*.test.ts\" mocha -r ts-node/register tests/**/*.test.ts && nyc report"
+  }
+}
